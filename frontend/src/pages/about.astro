@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="About Us - Tech Studio" 
+  description="Learn about Tech Studio's mission, values, and our team of technology experts."
+>
+  <Header />
+  
+  <main>
+    <!-- Page Header -->
+    <section class="bg-blue-600 text-white py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-4">About Tech Studio</h1>
+        <p class="text-xl">Building the future of technology, one project at a time</p>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+          <p class="text-lg text-gray-600 mb-8">
+            At Tech Studio, we're committed to delivering innovative technology solutions that empower 
+            businesses to thrive in the digital age. We believe in the transformative power of technology 
+            and strive to make it accessible and impactful for organizations of all sizes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="bg-gray-100 py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Our Values</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-lg">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">Innovation</h3>
+            <p class="text-gray-600">
+              We constantly explore new technologies and methodologies to deliver cutting-edge solutions 
+              that keep our clients ahead of the curve.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-lg">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">Excellence</h3>
+            <p class="text-gray-600">
+              Quality is at the heart of everything we do. We maintain the highest standards in our code, 
+              processes, and customer service.
+            </p>
+          </div>
+          <div class="bg-white p-8 rounded-lg">
+            <h3 class="text-xl font-bold mb-4 text-blue-600">Partnership</h3>
+            <p class="text-gray-600">
+              We work closely with our clients as trusted partners, understanding their needs and 
+              collaborating to achieve shared success.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+          <p class="text-gray-600 mb-4">
+            Founded in 2020, Tech Studio emerged from a vision to bridge the gap between innovative 
+            technology and practical business solutions. What started as a small team of passionate 
+            developers has grown into a full-service technology company serving clients worldwide.
+          </p>
+          <p class="text-gray-600 mb-4">
+            Over the years, we've helped dozens of companies transform their operations through technology, 
+            from startups building their first product to established enterprises modernizing their infrastructure.
+          </p>
+          <p class="text-gray-600">
+            Today, we continue to push the boundaries of what's possible, staying at the forefront of 
+            technology trends while maintaining our commitment to exceptional service and results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-blue-600 text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Work Together?</h2>
+        <p class="text-xl mb-8">
+          Let's create something amazing together.
+        </p>
+        <a href="/contact" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
+          Contact Us
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

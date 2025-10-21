@@ -1,0 +1,49 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-white mt-16">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Tech Studio</h3>
+        <p class="text-gray-400">
+          Innovative technology solutions for your business success.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
+          <li><a href="/about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold mb-4">Services</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Web Development</li>
+          <li>Mobile Apps</li>
+          <li>Cloud Solutions</li>
+          <li>Consulting</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold mb-4">Contact</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Email: info@techstudio.com</li>
+          <li>Phone: +1 (555) 123-4567</li>
+          <li>Address: 123 Tech Street</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; {currentYear} Tech Studio. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

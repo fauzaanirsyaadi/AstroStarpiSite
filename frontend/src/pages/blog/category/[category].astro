@@ -1,0 +1,118 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { fetchArticlesByCategory, formatDate } from '../../../lib/strapi';
+
+const categories = ['technology', 'development', 'design', 'business', 'tutorial'];
+
+export async function getStaticPaths() {
+  return ['technology', 'development', 'design', 'business', 'tutorial'].map(category => ({
+    params: { category },
+  }));
+}
+
+const { category } = Astro.params;
+const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1);
+const articles = await fetchArticlesByCategory(categoryTitle);
+---
+
+<Layout 
+  title={`${categoryTitle} Articles - Tech Studio Blog`}
+  description={`Browse all ${categoryTitle} articles from Tech Studio.`}
+>
+  <Header />
+  
+  <main>
+    <!-- Page Header -->
+    <section class="bg-blue-600 text-white py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-4">{categoryTitle} Articles</h1>
+        <p class="text-xl">Explore our latest insights on {categoryTitle.toLowerCase()}</p>
+      </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="py-8 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <a href="/blog" class="px-4 py-2 bg-white rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+            All
+          </a>
+          {['Technology', 'Development', 'Design', 'Business', 'Tutorial'].map(cat => (
+            <a
+              href={`/blog/category/${cat.toLowerCase()}`}
+              class={`px-4 py-2 rounded-lg transition-colors ${
+                cat.toLowerCase() === category 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-white hover:bg-blue-600 hover:text-white'
+              }`}
+            >
+              {cat}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        {articles.length === 0 ? (
+          <div class="text-center py-16">
+            <h2 class="text-2xl font-bold mb-4">No {categoryTitle} Articles Yet</h2>
+            <p class="text-gray-600 mb-8">
+              Check back soon for new content in this category.
+            </p>
+            <a href="/blog" class="text-blue-600 hover:text-blue-700 font-semibold">
+              ← View All Articles
+            </a>
+          </div>
+        ) : (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map(article => (
+              <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                {article.featuredImage && (
+                  <img 
+                    src={article.featuredImage} 
+                    alt={article.title}
+                    class="w-full h-48 object-cover"
+                  />
+                )}
+                <div class="p-6">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full">
+                      {article.category}
+                    </span>
+                    <span class="text-sm text-gray-500">
+                      {formatDate(article.publishedDate || article.publishedAt)}
+                    </span>
+                  </div>
+                  <h2 class="text-xl font-bold mb-2">
+                    <a href={`/blog/${article.slug}`} class="hover:text-blue-600 transition-colors">
+                      {article.title}
+                    </a>
+                  </h2>
+                  <p class="text-gray-600 mb-4">
+                    {article.excerpt || article.content.substring(0, 150) + '...'}
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-500">By {article.author}</span>
+                    <a 
+                      href={`/blog/${article.slug}`}
+                      class="text-blue-600 hover:text-blue-700 font-semibold"
+                    >
+                      Read More →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": "Blog articles for the Tech Studio website"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Technology",
+        "Development",
+        "Design",
+        "Business",
+        "Tutorial"
+      ],
+      "default": "Technology"
+    },
+    "featuredImage": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string",
+      "default": "Tech Studio Team"
+    },
+    "publishedDate": {
+      "type": "date"
+    }
+  }
+}

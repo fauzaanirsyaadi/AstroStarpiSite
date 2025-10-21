@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { fetchArticles, formatDate } from '../../lib/strapi';
+
+const articles = await fetchArticles();
+const categories = ['All', 'Technology', 'Development', 'Design', 'Business', 'Tutorial'];
+---
+
+<Layout 
+  title="Blog - Tech Studio" 
+  description="Read the latest articles on technology, development, design, and business from Tech Studio."
+>
+  <Header />
+  
+  <main>
+    <!-- Page Header -->
+    <section class="bg-blue-600 text-white py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-4">Blog</h1>
+        <p class="text-xl">Insights, tutorials, and news from the world of technology</p>
+      </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="py-8 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap gap-2 justify-center">
+          {categories.map(category => (
+            <a
+              href={category === 'All' ? '/blog' : `/blog/category/${category.toLowerCase()}`}
+              class="px-4 py-2 bg-white rounded-lg hover:bg-blue-600 hover:text-white transition-colors"
+            >
+              {category}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        {articles.length === 0 ? (
+          <div class="text-center py-16">
+            <h2 class="text-2xl font-bold mb-4">No Articles Yet</h2>
+            <p class="text-gray-600 mb-8">
+              Articles will appear here once they are published in Strapi CMS.
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto text-left">
+              <h3 class="font-bold mb-2">Getting Started:</h3>
+              <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                <li>Start the Strapi backend server</li>
+                <li>Access the admin panel at http://localhost:1337/admin</li>
+                <li>Create your admin user</li>
+                <li>Create and publish articles in the Article collection</li>
+              </ol>
+            </div>
+          </div>
+        ) : (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map(article => (
+              <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                {article.featuredImage && (
+                  <img 
+                    src={article.featuredImage} 
+                    alt={article.title}
+                    class="w-full h-48 object-cover"
+                  />
+                )}
+                <div class="p-6">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full">
+                      {article.category}
+                    </span>
+                    <span class="text-sm text-gray-500">
+                      {formatDate(article.publishedDate || article.publishedAt)}
+                    </span>
+                  </div>
+                  <h2 class="text-xl font-bold mb-2">
+                    <a href={`/blog/${article.slug}`} class="hover:text-blue-600 transition-colors">
+                      {article.title}
+                    </a>
+                  </h2>
+                  <p class="text-gray-600 mb-4">
+                    {article.excerpt || article.content.substring(0, 150) + '...'}
+                  </p>
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-500">By {article.author}</span>
+                    <a 
+                      href={`/blog/${article.slug}`}
+                      class="text-blue-600 hover:text-blue-700 font-semibold"
+                    >
+                      Read More →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Tech Studio - Innovative Technology Solutions">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-5xl font-bold mb-6">Welcome to Tech Studio</h1>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          We deliver innovative technology solutions that transform businesses and drive success in the digital age.
+        </p>
+        <div class="flex gap-4 justify-center">
+          <a href="/services" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            Our Services
+          </a>
+          <a href="/contact" class="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <div class="text-blue-600 text-5xl mb-4">🚀</div>
+            <h3 class="text-xl font-semibold mb-3">Fast Delivery</h3>
+            <p class="text-gray-600">
+              Quick turnaround times without compromising on quality. We deliver projects on time, every time.
+            </p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-blue-600 text-5xl mb-4">💡</div>
+            <h3 class="text-xl font-semibold mb-3">Innovation</h3>
+            <p class="text-gray-600">
+              Cutting-edge solutions using the latest technologies to keep you ahead of the competition.
+            </p>
+          </div>
+          <div class="text-center p-6">
+            <div class="text-blue-600 text-5xl mb-4">🎯</div>
+            <h3 class="text-xl font-semibold mb-3">Results Driven</h3>
+            <p class="text-gray-600">
+              We focus on measurable outcomes that impact your bottom line and drive business growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gray-100 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Let's discuss how we can help transform your business with technology.
+        </p>
+        <a href="/contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block">
+          Schedule a Consultation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

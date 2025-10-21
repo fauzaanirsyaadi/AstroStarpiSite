@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Our Services - Tech Studio" 
+  description="Comprehensive technology services including web development, mobile apps, cloud solutions, and consulting."
+>
+  <Header />
+  
+  <main>
+    <!-- Page Header -->
+    <section class="bg-blue-600 text-white py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold mb-4">Our Services</h1>
+        <p class="text-xl">Comprehensive solutions tailored to your business needs</p>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Service 1 -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="text-4xl mb-4">🌐</div>
+            <h2 class="text-2xl font-bold mb-4">Web Development</h2>
+            <p class="text-gray-600 mb-4">
+              Custom web applications built with modern frameworks and best practices. We create responsive, 
+              fast, and scalable websites that deliver exceptional user experiences.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li>✓ Responsive Design</li>
+              <li>✓ SEO Optimization</li>
+              <li>✓ Performance Focused</li>
+              <li>✓ Modern Tech Stack</li>
+            </ul>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="text-4xl mb-4">📱</div>
+            <h2 class="text-2xl font-bold mb-4">Mobile App Development</h2>
+            <p class="text-gray-600 mb-4">
+              Native and cross-platform mobile applications for iOS and Android. We build apps that users 
+              love with intuitive interfaces and powerful functionality.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li>✓ iOS & Android</li>
+              <li>✓ Cross-Platform Solutions</li>
+              <li>✓ Native Performance</li>
+              <li>✓ App Store Deployment</li>
+            </ul>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="text-4xl mb-4">☁️</div>
+            <h2 class="text-2xl font-bold mb-4">Cloud Solutions</h2>
+            <p class="text-gray-600 mb-4">
+              Scalable cloud infrastructure and migration services. We help you leverage cloud computing 
+              to reduce costs, improve performance, and increase reliability.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li>✓ Cloud Migration</li>
+              <li>✓ Infrastructure Setup</li>
+              <li>✓ DevOps & CI/CD</li>
+              <li>✓ Cost Optimization</li>
+            </ul>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="text-4xl mb-4">💼</div>
+            <h2 class="text-2xl font-bold mb-4">Technology Consulting</h2>
+            <p class="text-gray-600 mb-4">
+              Strategic technology guidance to help you make informed decisions. Our experts provide 
+              insights on architecture, technology selection, and digital transformation.
+            </p>
+            <ul class="space-y-2 text-gray-600">
+              <li>✓ Technology Strategy</li>
+              <li>✓ Architecture Design</li>
+              <li>✓ Code Reviews</li>
+              <li>✓ Team Training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gray-100 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Interested in Our Services?</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Let's discuss how we can help you achieve your goals.
+        </p>
+        <a href="/contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
